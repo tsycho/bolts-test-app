@@ -19,6 +19,11 @@
 		096C117118B2B57E00899C02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 096C115918B2B57E00899C02 /* UIKit.framework */; };
 		096C117918B2B57E00899C02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 096C117718B2B57E00899C02 /* InfoPlist.strings */; };
 		096C117B18B2B57E00899C02 /* BoltsTestAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 096C117A18B2B57E00899C02 /* BoltsTestAppTests.m */; };
+		096C118F18B2B8C900899C02 /* BFExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 096C118718B2B8C800899C02 /* BFExecutor.m */; };
+		096C119018B2B8C900899C02 /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 096C118918B2B8C800899C02 /* BFTask.m */; };
+		096C119118B2B8C900899C02 /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 096C118B18B2B8C800899C02 /* BFTaskCompletionSource.m */; };
+		096C119218B2B8C900899C02 /* Bolts.m in Sources */ = {isa = PBXBuildFile; fileRef = 096C118D18B2B8C800899C02 /* Bolts.m */; };
+		096C119518B2B90A00899C02 /* BFTestTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 096C119418B2B90A00899C02 /* BFTestTasks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,17 @@
 		096C117618B2B57E00899C02 /* BoltsTestAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoltsTestAppTests-Info.plist"; sourceTree = "<group>"; };
 		096C117818B2B57E00899C02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		096C117A18B2B57E00899C02 /* BoltsTestAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoltsTestAppTests.m; sourceTree = "<group>"; };
+		096C118618B2B8C800899C02 /* BFExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFExecutor.h; sourceTree = "<group>"; };
+		096C118718B2B8C800899C02 /* BFExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFExecutor.m; sourceTree = "<group>"; };
+		096C118818B2B8C800899C02 /* BFTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTask.h; sourceTree = "<group>"; };
+		096C118918B2B8C800899C02 /* BFTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTask.m; sourceTree = "<group>"; };
+		096C118A18B2B8C800899C02 /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTaskCompletionSource.h; sourceTree = "<group>"; };
+		096C118B18B2B8C800899C02 /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTaskCompletionSource.m; sourceTree = "<group>"; };
+		096C118C18B2B8C800899C02 /* Bolts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bolts.h; sourceTree = "<group>"; };
+		096C118D18B2B8C800899C02 /* Bolts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bolts.m; sourceTree = "<group>"; };
+		096C118E18B2B8C800899C02 /* BoltsVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltsVersion.h; sourceTree = "<group>"; };
+		096C119318B2B90A00899C02 /* BFTestTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTestTasks.h; sourceTree = "<group>"; };
+		096C119418B2B90A00899C02 /* BFTestTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTestTasks.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +123,11 @@
 		096C115B18B2B57E00899C02 /* BoltsTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				096C118518B2B8C800899C02 /* Bolts */,
 				096C116418B2B57E00899C02 /* AppDelegate.h */,
 				096C116518B2B57E00899C02 /* AppDelegate.m */,
+				096C119318B2B90A00899C02 /* BFTestTasks.h */,
+				096C119418B2B90A00899C02 /* BFTestTasks.m */,
 				096C116718B2B57E00899C02 /* Images.xcassets */,
 				096C115C18B2B57E00899C02 /* Supporting Files */,
 			);
@@ -142,6 +161,22 @@
 				096C117718B2B57E00899C02 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		096C118518B2B8C800899C02 /* Bolts */ = {
+			isa = PBXGroup;
+			children = (
+				096C118618B2B8C800899C02 /* BFExecutor.h */,
+				096C118718B2B8C800899C02 /* BFExecutor.m */,
+				096C118818B2B8C800899C02 /* BFTask.h */,
+				096C118918B2B8C800899C02 /* BFTask.m */,
+				096C118A18B2B8C800899C02 /* BFTaskCompletionSource.h */,
+				096C118B18B2B8C800899C02 /* BFTaskCompletionSource.m */,
+				096C118C18B2B8C800899C02 /* Bolts.h */,
+				096C118D18B2B8C800899C02 /* Bolts.m */,
+				096C118E18B2B8C800899C02 /* BoltsVersion.h */,
+			);
+			path = Bolts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,8 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096C119218B2B8C900899C02 /* Bolts.m in Sources */,
 				096C116618B2B57E00899C02 /* AppDelegate.m in Sources */,
+				096C118F18B2B8C900899C02 /* BFExecutor.m in Sources */,
+				096C119118B2B8C900899C02 /* BFTaskCompletionSource.m in Sources */,
+				096C119018B2B8C900899C02 /* BFTask.m in Sources */,
 				096C116218B2B57E00899C02 /* main.m in Sources */,
+				096C119518B2B90A00899C02 /* BFTestTasks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +481,7 @@
 				096C118018B2B57E00899C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		096C118118B2B57E00899C02 /* Build configuration list for PBXNativeTarget "BoltsTestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +490,7 @@
 				096C118318B2B57E00899C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
