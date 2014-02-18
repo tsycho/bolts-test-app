@@ -16,10 +16,16 @@
 - (instancetype)init {
   self = [super init];
   if (self) {
-    BFTask *delayedTask = [BFTask taskWithDelay:1];
-    _parent = [[self class] childTaskForParent:delayedTask withName:@"parent"];
+    _delayedTask = [BFTask taskWithDelay:2000];
+    _parent = [[self class] childTaskForParent:_delayedTask withName:@"parent"];
     _child1 = [[self class] childTaskForParent:_parent withName:@"child1"];
     _child2 = [[self class] childTaskForParent:_parent withName:@"child2"];
+
+    NSLog(@"delayedTask: %@", _delayedTask);
+    NSLog(@"parent: %@", _parent);
+    NSLog(@"child1: %@", _child1);
+    NSLog(@"child2: %@", _child2);
+    NSLog(@"");
   }
   return self;
 }
@@ -29,9 +35,9 @@
 + (BFTask *)childTaskForParent:(BFTask *)parent withName:(NSString *)taskName {
   return [parent continueWithBlock:^id(BFTask *task) {
     if (task.isCancelled) {
-      NSLog(@"%@ cancelled", taskName);
+      NSLog(@"%@ cancelled: %@", taskName, task);
     } else if (task.isCompleted) {
-      NSLog(@"%@ completed", taskName);
+      NSLog(@"%@ completed: %@", taskName, task);
     }
     return taskName;
   }];

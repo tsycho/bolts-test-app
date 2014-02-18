@@ -10,6 +10,7 @@
 
 @interface BFTestTasks : NSObject
 
+@property(nonatomic, readonly) BFTask *delayedTask;
 @property(nonatomic, readonly) BFTask *parent;
 @property(nonatomic, readonly) BFTask *child1;
 @property(nonatomic, readonly) BFTask *child2;
