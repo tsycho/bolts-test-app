@@ -151,6 +151,9 @@ __attribute__ ((noinline)) void warnBlockingOperationOnMainThread() {
 
 - (BOOL)trySetResult:(id)result {
     @synchronized (self.lock) {
+        if (self.isCancelled) {
+            return YES;
+        }
         if (self.completed) {
             return NO;
         }
@@ -176,6 +179,9 @@ __attribute__ ((noinline)) void warnBlockingOperationOnMainThread() {
 
 - (BOOL)trySetError:(NSError *)error {
     @synchronized (self.lock) {
+        if (self.isCancelled) {
+            return YES;
+        }
         if (self.completed) {
             return NO;
         }
@@ -201,6 +207,9 @@ __attribute__ ((noinline)) void warnBlockingOperationOnMainThread() {
 
 - (BOOL)trySetException:(NSException *)exception {
     @synchronized (self.lock) {
+        if (self.isCancelled) {
+            return YES;
+        }
         if (self.completed) {
             return NO;
         }
@@ -228,6 +237,9 @@ __attribute__ ((noinline)) void warnBlockingOperationOnMainThread() {
 
 - (BOOL)trySetCancelled {
     @synchronized (self.lock) {
+        if (self.isCancelled) {
+            return YES;
+        }
         if (self.completed) {
             return NO;
         }
@@ -271,7 +283,9 @@ __attribute__ ((noinline)) void warnBlockingOperationOnMainThread() {
         [executor execute:^{
             id result = nil;
             @try {
-                result = block(self);
+                if (!tcs.task.isCancelled) {
+                    result = block(self);
+                }
             } @catch (NSException *exception) {
                 tcs.exception = exception;
                 return;
